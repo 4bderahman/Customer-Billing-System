@@ -1,0 +1,35 @@
+algorithme : customers
+Variables:
+    tableau client[]: chaine de caracteres
+    tableau prixfinale[]: reel
+    clients, i, j: Intier
+    articles, prix_article, TTC, prix_final: reel
+
+Debut:
+    TVA <- 0.15
+    remise <- 0.02
+    ecrire ("Le nombre des clients:")
+    Lire (clients)
+    Pour i <- 1 à clients pas 1 faire :
+        Ecrire ("Entrez le nom et le prénom du client ", i )
+        Lire (client[i])
+        ecrire ("Entrez le nombre d'articles : ")
+        Lire (articles)
+        somme ← 0 
+    
+        Pour j <- 1 à articles pas 1 faire 
+            ecrire ("Entrez le prix de l'article ", j)
+            Lire (prix_article)
+            somme ← somme + prix_article
+        Fin Pour
+    
+        TTC ← somme + (somme * TVA)
+        prix_final ← TTC + (TTC * remise)
+        prixfinale[i] <- prix_final
+    Fin Pour
+
+    Ecrire ("FACTURE :")
+    Pour i <- 1 à clients pas 1 faire
+        ecrire ("Le montant total à payer pour le client ", client[i], " : ", prixfinale[i], " DHS")
+    Fin Pour
+Fin
